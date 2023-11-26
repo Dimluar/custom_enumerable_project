@@ -43,6 +43,14 @@ module Enumerable
     self.my_each { |element| self_modified << block.call(element) }
     self_modified
   end
+
+  def my_inject(initial_value= self[0] ,&block)
+    reduction = initial_value
+    self.my_each do |element|
+      reduction = block.call(reduction, element)
+    end
+    reduction
+  end
 end
 
 # You will first have to define my_each
