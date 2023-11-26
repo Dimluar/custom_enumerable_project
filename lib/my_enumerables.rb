@@ -14,6 +14,11 @@ module Enumerable
     self.my_each { |element| self_selected << element if block.call(element) }
     self_selected
   end
+
+  def my_all?(&block)
+    self_test = self.my_select(&block)
+    self == self_test
+  end
 end
 
 # You will first have to define my_each
