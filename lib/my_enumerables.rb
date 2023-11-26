@@ -24,6 +24,11 @@ module Enumerable
     self_test = self.my_select(&block)
     !self_test.empty?
   end
+
+  def my_none?(&block)
+    self_test = self.my_select(&block)
+    self_test.empty?
+  end
 end
 
 # You will first have to define my_each
