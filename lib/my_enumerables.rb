@@ -37,6 +37,12 @@ module Enumerable
     self.my_each { |element| count += 1 if block.call(element) }
     count
   end
+
+  def my_map(&block)
+    self_modified = []
+    self.my_each { |element| self_modified << block.call(element) }
+    self_modified
+  end
 end
 
 # You will first have to define my_each
