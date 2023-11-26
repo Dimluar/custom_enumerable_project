@@ -8,6 +8,12 @@ module Enumerable
     end
     self
   end
+
+  def my_select(&block)
+    self_selected = []
+    self.my_each { |element| self_selected << element if block.call(element) }
+    self_selected
+  end
 end
 
 # You will first have to define my_each
